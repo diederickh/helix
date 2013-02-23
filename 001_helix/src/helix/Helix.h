@@ -26,18 +26,10 @@
 #ifndef ROXLU_HELIX_H
 #define ROXLU_HELIX_H
 
+#include <deque>
 #include <roxlu/Roxlu.h>
+#include "helix/Particles.h"
 
-
-struct Particle {
-  Particle();
-  void addForce(Vec3 f);
-  void update(float dt);
-
-  Vec3 position;
-  Vec3 forces;
-  Vec3 velocity;
-};
 
 struct HelixVertex {
   HelixVertex();
@@ -58,8 +50,8 @@ class Helix {
   void generateVertices();
   void reset();
  private:
-  void generateVerticesForSpine(std::vector<Vec3>& spine);
-  void generateVerticesForBasePairs(std::vector<Vec3>& sa, std::vector<Vec3>& sb);
+  void generateVerticesForSpine(std::deque<Vec3>& spine);
+  void generateVerticesForBasePairs(std::deque<Vec3>& sa, std::deque<Vec3>& sb);
   void generateVerticesForTube(Vec3& ta, Vec3& tbo);
  public:
 
@@ -68,8 +60,8 @@ class Helix {
   float radius;                                   /* radius of the helix */
   Particle a;                                     /* particle that is used to fetch the position of the head */
   Particle b;                                     /* "" */
-  std::vector<Vec3> spine_a;                      /* we keep track of the particle positions at every update */
-  std::vector<Vec3> spine_b;                      /* "" */
+  std::deque<Vec3> spine_a;                      /* we keep track of the particle positions at every update */
+  std::deque<Vec3> spine_b;                      /* "" */
   std::vector<HelixVertex> vertices;              /* our vertex buffer we send to the gpu every update */
   std::vector<int> side_elements;                 /* element indices for the sides of the backbone */
   std::vector<int> tube_elements;                 /* the elements which need to be drawn separately with a draw call to glDrawElements */

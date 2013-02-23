@@ -30,15 +30,17 @@ class HelixDebugShader : public HelixShader {
   bool setup();
 };
 
-// APPLY CUBEMAP REFLECTION
+// APPLY CUBEMAP REFLECTION + SOME LIGHT RAY PRE-PROCESSING
 class HelixCubeMapShader : public HelixShader {
  public:
   HelixCubeMapShader();
   bool setup();
   void bind(int unit = 0);
- private:
+ public:
   CubeMap cubemap;
   GLint u_cube_tex;
+  GLint u_col;
+  float color[4];
 };
 
 // APPLY LIGHT RAYS

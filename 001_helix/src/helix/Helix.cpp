@@ -40,6 +40,14 @@ void Helix::update(float dt) {
 
   spine_a.push_back(a.position);
   spine_b.push_back(b.position);
+
+  int nmax = 400;
+  if(spine_a.size() > nmax) {
+    // spine_a.erase(spine_a.begin());
+  }
+  if(spine_b.size() > nmax) {
+    //spine_b.erase(spine_b.begin());
+  }
 }
 
 void Helix::addForce(Vec3 f) {
@@ -47,7 +55,7 @@ void Helix::addForce(Vec3 f) {
   b.addForce(f);
 }
 
-void Helix::generateVerticesForSpine(std::vector<Vec3>& spine) {
+void Helix::generateVerticesForSpine(std::deque<Vec3>& spine) {
   // GENERATE THE "BACKBONES/SIDE"
   float height = 0.8f;
   float thickness = 0.05f;
@@ -174,7 +182,7 @@ void Helix::generateVerticesForTube(Vec3& ta, Vec3& tb) {
   num_elements += 2;
 }
 
-void Helix::generateVerticesForBasePairs(std::vector<Vec3>& sa, std::vector<Vec3>& sb) {
+void Helix::generateVerticesForBasePairs(std::deque<Vec3>& sa, std::deque<Vec3>& sb) {
   if(sa.size() != sb.size()) {
     return;
   }
@@ -199,19 +207,10 @@ void Helix::generateVertices() {
 
 // -----
 
-Particle::Particle() {
-}
 
-void Particle::addForce(Vec3 f) {
-  forces += f;
-}
 
-void Particle::update(float dt) {
-  velocity = forces * dt;
-  position += velocity * dt;
-  velocity *= 0.99f;
-  forces = 0;
-}
+
+
 
 
 

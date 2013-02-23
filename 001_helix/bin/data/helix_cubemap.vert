@@ -16,7 +16,7 @@ void main() {
   gl_Position = pm * vm * a_pos;
 
   v_pos = vec3(a_pos);  
-  v_eye_norm = nm * a_norm; // eye coord
+  v_eye_norm = nm * a_pos.xyz * a_norm; // eye coord
   v_eye_pos = nm * a_pos.xyz;  // eye coord
 
 }

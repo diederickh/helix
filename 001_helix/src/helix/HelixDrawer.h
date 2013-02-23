@@ -5,10 +5,11 @@
 #include <roxlu/Roxlu.h>
 #include "Helix.h"
 #include "HelixShaders.h"
+#include "ParticlesDrawer.h"
 
 class HelixDrawer {
  public:
-  HelixDrawer(Helix& helix);
+  HelixDrawer(Helix& helix, ParticlesDrawer& ps);
   ~HelixDrawer();
   void setup(int w, int h);
   void update();
@@ -26,9 +27,10 @@ class HelixDrawer {
   int height;
   bool is_debug;
   Helix& helix;
+  ParticlesDrawer& ps;
   DebugDrawer dd;
 
- private:
+ public: 
 
   // render passes
   HelixDebugShader shader_debug;

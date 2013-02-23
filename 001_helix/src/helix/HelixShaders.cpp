@@ -64,7 +64,10 @@ bool HelixDebugShader::setup() {
 HelixCubeMapShader::HelixCubeMapShader()
   :HelixShader()
   ,cubemap("helix_cubemap")
+  ,u_col(0)
+  ,u_cube_tex(0)
 {
+
 }
 
 bool HelixCubeMapShader::setup() {
@@ -83,6 +86,8 @@ bool HelixCubeMapShader::setup() {
     return false;
   }
 
+  u_col = glGetUniformLocation(prog, "u_col");
+
   return true;
 }
 
@@ -90,6 +95,7 @@ void HelixCubeMapShader::bind(int unit) {
   glActiveTexture(GL_TEXTURE0 + unit);
   glBindTexture(GL_TEXTURE_CUBE_MAP, cubemap.tex);
   glUniform1i(u_cube_tex, unit);
+  glUniform4fv(u_col, 1, color);
   
 }
 
@@ -127,6 +133,7 @@ void HelixLightRaysShader::use() {
   glUniform1f(u_decay, decay);
   glUniform1f(u_weight, weight);
   glUniform1f(u_density, density);
+
 }
 
 // FULLSCREEN

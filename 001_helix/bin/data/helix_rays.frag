@@ -16,7 +16,7 @@ uniform float u_density;
 uniform float u_weight;
 
 varying vec2 v_tex;
-const int NUM_SAMPLES = 50;
+const int NUM_SAMPLES = 150;
 void main() {
   vec2 light_pos = vec2(0.5, 0.5);
   vec2 tex_coord = v_tex;
