@@ -1,6 +1,6 @@
 #include "HelixDrawer.h"
 
-HelixDrawer::HelixDrawer(Helix& helix, ParticlesDrawer& ps)
+HelixDrawer::HelixDrawer(Helix& helix, ParticlesDrawer& ps, int w, int h)
   :helix(helix) 
   ,ps(ps)
   ,vao(0)
@@ -15,6 +15,7 @@ HelixDrawer::HelixDrawer(Helix& helix, ParticlesDrawer& ps)
   ,rbo(0)
   ,tex_shaded(0)
   ,tex_mask(0)
+  ,shader_blur(w,h)
 {
 }
 
@@ -50,6 +51,7 @@ void HelixDrawer::setup(int w, int h) {
   shader_cubemap.setup();
   shader_rays.setup();
   shader_fullscreen.setup();
+  shader_blur.setup();
 
   // Render pass VBO + VAO
   glGenVertexArrays(1, &vao);
@@ -115,6 +117,10 @@ void HelixDrawer::setup(int w, int h) {
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
   glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, tex_shaded, 0);
 
+  // Blur shader pass 0
+  glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, shader_blur.blur0_tex, 0);
+  glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, GL_COLOR_ATTACHMENT3, GL_TEXTURE_2D, shader_blur.blur1_tex, 0);
+
   glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
@@ -149,14 +155,17 @@ void HelixDrawer::draw(const float* pm, const float* vm, const float* nm) {
 }
 
 void HelixDrawer::shadedDraw(const float* pm, const float* vm, const float* nm) {
+  
   // RTT
   {
     glBindFramebuffer(GL_DRAW_FRAMEBUFFER, fbo);
+    GLenum buffers[] = {GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1};
+    glDrawBuffers(2, buffers);
+
+    glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
     glDisable(GL_BLEND);
 
-    GLenum buffers[] = {GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1};
-    glDrawBuffers(2, buffers);
 
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
     glBindVertexArray(vao);
@@ -175,9 +184,52 @@ void HelixDrawer::shadedDraw(const float* pm, const float* vm, const float* nm) 
 
     ps.draw(pm, vm, nm);
   }
+  
+
+  // BLUR 
+  {
+    glDepthMask(GL_FALSE);
+    glDisable(GL_BLEND);
+    glDrawBuffer(GL_COLOR_ATTACHMENT2);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    // BLUR PASS 0
+    shader_blur.usePass0Program();
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, tex_mask);
+    shader_blur.setPass0TextureUnit(0);
+    drawFullscreen();
+
+    // BLUR PASS 1
+    glDrawBuffer(GL_COLOR_ATTACHMENT3);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    shader_blur.usePass1Program();
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, shader_blur.blur0_tex);
+    shader_blur.setPass1TextureUnit(0);
+    drawFullscreen();
+
+    glDepthMask(GL_TRUE);
+  }
+
 
   glBindFramebuffer(GL_FRAMEBUFFER, 0);
   glDrawBuffer(GL_BACK_LEFT);
+
+#if 0
+  // DRAW BLURRED/BLOOM
+  glDepthMask(GL_FALSE);
+  glDisable(GL_BLEND);
+
+  shader_fullscreen.use();
+  glActiveTexture(GL_TEXTURE0);
+  glBindTexture(GL_TEXTURE_2D, shader_blur.blur1_tex);
+  glUniform1i(shader_fullscreen.u_tex, 0);
+  drawFullscreen();
+  glDepthMask(GL_TRUE);
+#endif
+
 
   glDepthMask(GL_FALSE);
   {
@@ -190,6 +242,7 @@ void HelixDrawer::shadedDraw(const float* pm, const float* vm, const float* nm) 
     glUniform1i(shader_fullscreen.u_tex, 0);
     drawFullscreen();
 
+#if 1
     // LIGHT RAYS
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE);
@@ -198,19 +251,27 @@ void HelixDrawer::shadedDraw(const float* pm, const float* vm, const float* nm) 
     glBindTexture(GL_TEXTURE_2D, tex_shaded);
     glUniform1i(shader_rays.u_tex, 0);
     drawFullscreen();
+#endif
 
     // HELIX
-    // glDisable(GL_BLEND);
-    //glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
     glBlendFunc(GL_SRC_COLOR, GL_ONE);
     glBlendFunc(GL_DST_COLOR, GL_ONE);
-    //glBlendFunc(GL_DST_COLOR, GL_SRC_COLOR);
     shader_fullscreen.use();
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex_shaded);
     glUniform1i(shader_fullscreen.u_tex, 0);
     drawFullscreen();
 
+    // BLOOM
+    glDepthMask(GL_FALSE);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_ONE, GL_ONE);
+    shader_fullscreen.use();
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, shader_blur.blur1_tex);
+    glUniform1i(shader_fullscreen.u_tex, 0);
+    drawFullscreen();
+    glDepthMask(GL_TRUE);
   }
 
   glDisable(GL_BLEND);

@@ -11,6 +11,8 @@ Helix::Helix()
   ,angle(0.0f)
   ,num_side_vertices(0)
   ,num_tube_vertices(0)
+  ,ribbon_height(0.8f)
+  ,ribbon_thickness(0.05f)
 {
 }
 
@@ -57,8 +59,8 @@ void Helix::addForce(Vec3 f) {
 
 void Helix::generateVerticesForSpine(std::deque<Vec3>& spine) {
   // GENERATE THE "BACKBONES/SIDE"
-  float height = 0.8f;
-  float thickness = 0.05f;
+  //  float height = 0.8f;
+  //  float thickness = 0.05f;
   if(spine.size() < 2) {
     return;
   }
@@ -72,11 +74,11 @@ void Helix::generateVerticesForSpine(std::deque<Vec3>& spine) {
  
     Vec3 perp = a0 - c;
     perp.normalize();
-    perp *= thickness;
+    perp *= ribbon_thickness;
  
     Vec3 diry = cross(perp, t);
     diry.normalize();
-    diry *= height;
+    diry *= ribbon_height;
  
     points.push_back((a0 - perp) - diry);
     points.push_back((a0 + perp) - diry);

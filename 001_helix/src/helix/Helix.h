@@ -58,10 +58,12 @@ class Helix {
   int num_elements;                               /* used internally to keep track of the current number of added elements */
   float angle;                                    /* the current angle or the two top points of the helix */
   float radius;                                   /* radius of the helix */
+  float ribbon_height;                            /* the height of the ribbon  */
+  float ribbon_thickness;                         /* the thickness of the ribbon... this grows towards the 'center' of the helix */
   Particle a;                                     /* particle that is used to fetch the position of the head */
   Particle b;                                     /* "" */
-  std::deque<Vec3> spine_a;                      /* we keep track of the particle positions at every update */
-  std::deque<Vec3> spine_b;                      /* "" */
+  std::deque<Vec3> spine_a;                       /* we keep track of the particle positions at every update */
+  std::deque<Vec3> spine_b;                       /* "" */
   std::vector<HelixVertex> vertices;              /* our vertex buffer we send to the gpu every update */
   std::vector<int> side_elements;                 /* element indices for the sides of the backbone */
   std::vector<int> tube_elements;                 /* the elements which need to be drawn separately with a draw call to glDrawElements */

@@ -2,7 +2,7 @@
 
 testApp::testApp()
   :particles_drawer(particles)
-  ,helix_drawer(helix, particles_drawer)
+  ,helix_drawer(helix, particles_drawer, ofGetWidth(), ofGetHeight())
   ,follow(false)
   ,gui("settings", 300, 300)
   ,use_cam(false)
@@ -24,6 +24,10 @@ void testApp::setup(){
   gui.addFloat("rays.density", helix_drawer.shader_rays.density).setMin(0.25).setMax(0.75).setStep(0.0001);
   gui.addFloat("rays.weight", helix_drawer.shader_rays.weight).setMin(1.0f).setMax(10.0f).setStep(0.1);
   gui.addColor("helix.color", helix_drawer.shader_cubemap.color);
+  gui.addFloat("cubemap.luma_threshold", helix_drawer.shader_cubemap.luma_threshold).setMin(0.0f).setMax(2.0f).setStep(0.001f);
+  gui.addFloat("helix.radius", helix.radius).setMin(1.0f).setMax(8.0f).setStep(0.001);
+  gui.addFloat("helix.ribbon_thickness", helix.ribbon_thickness).setMin(0.001).setMax(1.0f).setStep(0.001);
+  gui.addFloat("helix.ribbon_height", helix.ribbon_height).setMin(0.001).setMax(5.0f).setStep(0.001);
   gui.load();
   gui.setColor(0.3);
 

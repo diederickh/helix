@@ -9,7 +9,7 @@
 
 class HelixDrawer {
  public:
-  HelixDrawer(Helix& helix, ParticlesDrawer& ps);
+  HelixDrawer(Helix& helix, ParticlesDrawer& ps, int w, int h);
   ~HelixDrawer();
   void setup(int w, int h);
   void update();
@@ -42,6 +42,7 @@ class HelixDrawer {
   // shader passes
   HelixLightRaysShader shader_rays;
   HelixFullscreenShader shader_fullscreen;
+  HelixBlurShader shader_blur; 
   GLuint fs_vao;                    /* full screen, VAO, for shader passes */
   GLuint fs_vbo;                    /* full screen, VBO, for shaded passes */
   GLuint fbo;                       /* fbo, used to render the scene into */
