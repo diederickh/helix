@@ -18,7 +18,7 @@ uniform float u_weight;
 varying vec2 v_tex;
 const int NUM_SAMPLES = 150;
 void main() {
-  vec2 light_pos = vec2(0.5, 0.5);
+  vec2 light_pos = vec2(0.5, 0.0);
   vec2 tex_coord = v_tex;
   vec2 delta_tex = v_tex - light_pos;
   delta_tex = delta_tex * (1.0 / float(NUM_SAMPLES)) * u_density;
