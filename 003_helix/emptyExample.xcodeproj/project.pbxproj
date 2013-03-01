@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		48CAF42C16D7DE2200997C48 /* Helix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48CAF42516D7DE2200997C48 /* Helix.cpp */; };
-		48CAF42D16D7DE2200997C48 /* HelixDrawer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48CAF42716D7DE2200997C48 /* HelixDrawer.cpp */; };
-		48CAF42E16D7DE2200997C48 /* HelixShaders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48CAF42916D7DE2200997C48 /* HelixShaders.cpp */; };
-		48CAF44116D7FEE800997C48 /* Particles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48CAF43F16D7FEE800997C48 /* Particles.cpp */; };
+		48EEDE7516E1337900A919DB /* Helix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 48EEDE7316E1337900A919DB /* Helix.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -34,20 +31,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		483585C116E0E9F600D9C83A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 483585BD16E0E9F500D9C83A /* buttons.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 48CAF44C16D8042400997C48;
-			remoteInfo = buttons;
-		};
-		483585C716E0EA0400D9C83A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 483585C316E0EA0300D9C83A /* roxlu.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 48CAF1E816D7D33200997C48;
-			remoteInfo = roxlu;
-		};
 		E4328147138ABC890047C5CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
@@ -78,16 +61,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		483585BD16E0E9F500D9C83A /* buttons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = buttons.xcodeproj; path = ../../../../roxlu/addons/Buttons/build/xcode/buttons.xcodeproj; sourceTree = "<group>"; };
-		483585C316E0EA0300D9C83A /* roxlu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = roxlu.xcodeproj; path = ../../../../roxlu/lib/build/xcode/roxlu.xcodeproj; sourceTree = "<group>"; };
-		48CAF42516D7DE2200997C48 /* Helix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Helix.cpp; sourceTree = "<group>"; };
-		48CAF42616D7DE2200997C48 /* Helix.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = Helix.h; sourceTree = "<group>"; tabWidth = 2; };
-		48CAF42716D7DE2200997C48 /* HelixDrawer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelixDrawer.cpp; sourceTree = "<group>"; };
-		48CAF42816D7DE2200997C48 /* HelixDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelixDrawer.h; sourceTree = "<group>"; };
-		48CAF42916D7DE2200997C48 /* HelixShaders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelixShaders.cpp; sourceTree = "<group>"; };
-		48CAF42A16D7DE2200997C48 /* HelixShaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelixShaders.h; sourceTree = "<group>"; };
-		48CAF43F16D7FEE800997C48 /* Particles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Particles.cpp; sourceTree = "<group>"; };
-		48CAF44016D7FEE800997C48 /* Particles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Particles.h; sourceTree = "<group>"; };
+		48EEDE7316E1337900A919DB /* Helix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Helix.cpp; sourceTree = "<group>"; };
+		48EEDE7416E1337900A919DB /* Helix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helix.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -102,7 +77,7 @@
 		E4B69B5B0A3A1756003C02F2 /* emptyExampleDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = emptyExampleDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = testApp.cpp; path = src/testApp.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1F0A3A1BDC003C02F2 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 30; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = testApp.h; path = src/testApp.h; sourceTree = SOURCE_ROOT; tabWidth = 2; };
+		E4B69E1F0A3A1BDC003C02F2 /* testApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = testApp.h; path = src/testApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		E4C2424510CC5A17004149E2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -142,37 +117,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		483585BE16E0E9F500D9C83A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				483585C216E0E9F600D9C83A /* libbuttons.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		483585C416E0EA0300D9C83A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				483585C816E0EA0400D9C83A /* libroxlu.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		48CAF42216D7DE2200997C48 /* helix */ = {
-			isa = PBXGroup;
-			children = (
-				48CAF43F16D7FEE800997C48 /* Particles.cpp */,
-				48CAF44016D7FEE800997C48 /* Particles.h */,
-				48CAF42516D7DE2200997C48 /* Helix.cpp */,
-				48CAF42616D7DE2200997C48 /* Helix.h */,
-				48CAF42716D7DE2200997C48 /* HelixDrawer.cpp */,
-				48CAF42816D7DE2200997C48 /* HelixDrawer.h */,
-				48CAF42916D7DE2200997C48 /* HelixShaders.cpp */,
-				48CAF42A16D7DE2200997C48 /* HelixShaders.h */,
-			);
-			path = helix;
-			sourceTree = "<group>";
-		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,8 +174,6 @@
 		E4B69B4A0A3A1720003C02F2 = {
 			isa = PBXGroup;
 			children = (
-				483585C316E0EA0300D9C83A /* roxlu.xcodeproj */,
-				483585BD16E0E9F500D9C83A /* buttons.xcodeproj */,
 				E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */,
 				E4EB6923138AFD0F00A09F29 /* Project.xcconfig */,
 				E4B69E1C0A3A1BDC003C02F2 /* src */,
@@ -240,17 +182,16 @@
 				E45BE5980E8CC70C009D7055 /* frameworks */,
 				E4B69B5B0A3A1756003C02F2 /* emptyExampleDebug.app */,
 			);
-			indentWidth = 2;
 			sourceTree = "<group>";
-			tabWidth = 2;
 		};
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				48CAF42216D7DE2200997C48 /* helix */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
+				48EEDE7316E1337900A919DB /* Helix.cpp */,
+				48EEDE7416E1337900A919DB /* Helix.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -306,16 +247,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 483585BE16E0E9F500D9C83A /* Products */;
-					ProjectRef = 483585BD16E0E9F500D9C83A /* buttons.xcodeproj */;
-				},
-				{
 					ProductGroup = E4328144138ABC890047C5CB /* Products */;
 					ProjectRef = E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */;
-				},
-				{
-					ProductGroup = 483585C416E0EA0300D9C83A /* Products */;
-					ProjectRef = 483585C316E0EA0300D9C83A /* roxlu.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -326,20 +259,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		483585C216E0E9F600D9C83A /* libbuttons.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libbuttons.a;
-			remoteRef = 483585C116E0E9F600D9C83A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		483585C816E0EA0400D9C83A /* libroxlu.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libroxlu.a;
-			remoteRef = 483585C716E0EA0400D9C83A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		E4328148138ABC890047C5CB /* openFrameworksDebug.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -372,10 +291,7 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
-				48CAF42C16D7DE2200997C48 /* Helix.cpp in Sources */,
-				48CAF42D16D7DE2200997C48 /* HelixDrawer.cpp in Sources */,
-				48CAF42E16D7DE2200997C48 /* HelixShaders.cpp in Sources */,
-				48CAF44116D7FEE800997C48 /* Particles.cpp in Sources */,
+				48EEDE7516E1337900A919DB /* Helix.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,27 +388,6 @@
 				GCC_MODEL_TUNING = NONE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
-				GCC_PREPROCESSOR_DEFINITIONS = ROXLU_GL_WRAPPER;
-				HEADER_SEARCH_PATHS = (
-					"$(OF_CORE_HEADERS)",
-					src,
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
-				);
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../roxlu/lib/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../../../roxlu/addons/Buttons/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/../../../addons/roxlu/lib/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../addons/roxlu/extern/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../addons/roxlu/addons/Buttons/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../../roxlu/extern/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/../../../../roxlu/lib/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/../../../../roxlu/addons/Buttons/include\"";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
@@ -558,9 +453,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../Library/Developer/Xcode/DerivedData/emptyExample-anbxcfwalpksvjaezphmihiqetfz/Build/Products/Debug\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -581,27 +474,6 @@
 				GCC_MODEL_TUNING = NONE;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
-				GCC_PREPROCESSOR_DEFINITIONS = ROXLU_GL_WRAPPER;
-				HEADER_SEARCH_PATHS = (
-					"$(OF_CORE_HEADERS)",
-					src,
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_3)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_4)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_5)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_6)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_7)",
-					"$(HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_8)",
-				);
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../roxlu/lib/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../../../roxlu/addons/Buttons/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_3 = "\"$(SRCROOT)/../../../addons/roxlu/lib/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_4 = "\"$(SRCROOT)/../../../addons/roxlu/extern/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_5 = "\"$(SRCROOT)/../../../addons/roxlu/addons/Buttons/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_6 = "\"$(SRCROOT)/../../../../roxlu/extern/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_7 = "\"$(SRCROOT)/../../../../roxlu/lib/include\"";
-				HEADER_SEARCH_PATHS_QUOTED_FOR_TARGET_8 = "\"$(SRCROOT)/../../../../roxlu/addons/Buttons/include\"";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
@@ -667,9 +539,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_49)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
-					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
-				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../../../../../Library/Developer/Xcode/DerivedData/emptyExample-anbxcfwalpksvjaezphmihiqetfz/Build/Products/Debug\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
