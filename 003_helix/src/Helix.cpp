@@ -14,12 +14,15 @@ Helix::Helix()
   ,radius(4.5f)
 {
   mesh_ribbon_left.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+  mesh_ribbon_right.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
 }
 
 Helix::~Helix() {
 }
 
 void Helix::create() {
+  points_a.clear();
+  points_b.clear();
 
   head_a.set(0,0,0);
   head_b.set(0,0,0);
@@ -51,11 +54,22 @@ void Helix::create() {
 }
 
 void Helix::draw() {
+
   mesh_ribbon_right.drawWireframe();
   mesh_ribbon_left.drawWireframe();
+
   for(int i = 0; i < mesh_tubes.size(); ++i) {
     mesh_tubes[i].drawWireframe();
   }
+
+  /*
+  glColor3f(1.0f, 0.0, 0.0f);
+  glBegin(GL_TRIANGLE_STRIP);
+  for(int i = 0; i < mesh_ribbon_left.getNumVertices(); ++i) {
+    glVertex3fv(mesh_ribbon_left.getVertex(i).getPtr());
+  }
+  glEnd();
+  */
 }
 
 void Helix::generateVertices(std::deque<ofVec3f>& spine, ofMesh& vertices) { 
@@ -89,9 +103,11 @@ void Helix::generateVertices(std::deque<ofVec3f>& spine, ofMesh& vertices) {
     ofVec3f& a0 = points[dx + 0];
     ofVec3f& a3 = points[dx + 3];
     ofVec3f& a4 = points[dx + 4];
+    // printf("%f, %f, %f\n", a0.x, a0.y, a0.z);
     vertices.addVertex(a0);
     vertices.addVertex(a3);
   }
+  //  printf("\n");
 
 }
 
