@@ -215,6 +215,7 @@ bool HelixBlurShader::setup() {
 
   printf("blur0 tex uniform: %d\n", u_blur0_tex);
   printf("blur1 tex uniform: %d\n", u_blur1_tex);
+  return true;
 }
 
 void HelixBlurShader::setupBlur(GLuint blurprog, float amount) {
