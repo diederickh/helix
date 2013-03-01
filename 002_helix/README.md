@@ -1,13 +1,31 @@
-Helix, setup
-=============
-- Download openFrameworks 0.7.4
-- Create a directory: `of0074/apps/helix/`
-- Clone this repository in `of0074/apps/helix`
-- Create a directory: `of0074/addons/roxlu`
-- Clone `git@github.com:roxlu/roxlu.git`
-- Read the instructrion on how to setup the roxlu lib for the OF project: https://github.com/roxlu/roxlu#using-roxlu-lib-with-openframeworks-and-xcode
+Helix
+-----
 
-<p align="center">
-<img src="http://upload.roxlu.com/server/php/files/Screen%20Shot%202013-02-22%20at%203.55.00%20PM.png" alt="helix">
-</p>
+- `helix.radius`:  The radius around which we draw the helix
+- `helix.ribbon_thickness`: The thickness of the ribbons. The thinkness of the ribbon grows from the `radius` start, to `radius + ribbon_thickness` (in the outward direction).
+- `helix.ribbon_height`: The height of the helix in the y-direction.
+- `helix.angle_increment`:  Controls the number of rounds we make in the helix.
+- `helix.grow_force`: How fast we grow in the y-direction
+- `helix.tube_radius`: Radius of the tubes that connect the ribbons.
+- `helix.tube_resolution`: Controls the number of triangles we create for the tubes.
+- `helix.tube_interval`: Create a tube every X
+- `helix.num_iterations`: How many 'steps' in the y-direction to we take. 
+- `helix.draw_lines`: Draw lines so you can see the triangles.
+
+
+How to change the smoothness
+-----------------------------
+Use `helix.angle_increment`, `helix.grow_forces` and `helix.num_iterations` to control the number of vertices and smoothness of the shape. 
+
+For example use these settings to generate a lot of vertices:
+
+- `helix.angle_increment`: 0.0075
+- `helix.grow_force`: 1.4200
+- `helix.num_iterations`: 500
+
+Or use these settings to generate just a couple of vertices
+
+- `helix.angle_increment`: 0.0637
+- `helix.grow_force`: 10.00
+- `helix.num_iterations`: 81
 
