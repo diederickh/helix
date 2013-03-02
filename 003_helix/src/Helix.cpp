@@ -8,7 +8,7 @@ Helix::Helix()
   ,angle_increment(20 * DEG_TO_RAD)
   ,ribbon_thickness(0.05f)
   ,ribbon_height(0.8f)
-  ,tube_radius(3.2)
+  ,tube_radius(0.2)
   ,tube_resolution(10)
   ,tube_interval(2)
   ,radius(4.5f)
@@ -62,14 +62,6 @@ void Helix::draw() {
     mesh_tubes[i].drawWireframe();
   }
 
-  /*
-  glColor3f(1.0f, 0.0, 0.0f);
-  glBegin(GL_TRIANGLE_STRIP);
-  for(int i = 0; i < mesh_ribbon_left.getNumVertices(); ++i) {
-    glVertex3fv(mesh_ribbon_left.getVertex(i).getPtr());
-  }
-  glEnd();
-  */
 }
 
 void Helix::generateVertices(std::deque<ofVec3f>& spine, ofMesh& vertices) { 
@@ -125,10 +117,12 @@ void Helix::generateVerticesForTube(ofVec3f& ta, ofVec3f& tb) {
   int num_segments = tube_resolution;
   float angle_per_segment = TWO_PI / num_segments;
 
+  vertices.setMode(OF_PRIMITIVE_TRIANGLE_STRIP);
+
   right.normalize();
 
   for(int i = 0; i < num_segments; ++i) {
-    right.rotate(angle_per_segment, dir);
+    right.rotate(angle_per_segment * RAD_TO_DEG, dir);
     points_a.push_back(ta + (right * r));
     points_b.push_back(tb + (right * r));
   }
