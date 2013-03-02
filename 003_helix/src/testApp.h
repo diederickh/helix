@@ -20,8 +20,16 @@ class testApp : public ofBaseApp{
   void dragEvent(ofDragInfo dragInfo);
   void gotMessage(ofMessage msg);
  public:
-
-  ofxFloatSlider tube_radius;
+  ofxFloatSlider helix_radius;
+  ofxFloatSlider helix_tube_radius;
+  ofxIntSlider helix_num_iterations;
+  ofxFloatSlider helix_grow_size;
+  ofxFloatSlider helix_angle_increment;
+  ofxFloatSlider helix_ribbon_height;
+  ofxFloatSlider helix_ribbon_thickness;
+  ofxIntSlider helix_tube_resolution;
+  ofxIntSlider helix_tube_interval;
+    
   ofxPanel gui;
   
   ofEasyCam cam;
