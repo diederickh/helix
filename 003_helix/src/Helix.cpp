@@ -95,11 +95,9 @@ void Helix::generateVertices(std::deque<ofVec3f>& spine, ofMesh& vertices) {
     ofVec3f& a0 = points[dx + 0];
     ofVec3f& a3 = points[dx + 3];
     ofVec3f& a4 = points[dx + 4];
-    // printf("%f, %f, %f\n", a0.x, a0.y, a0.z);
     vertices.addVertex(a0);
     vertices.addVertex(a3);
   }
-  //  printf("\n");
 
 }
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGui.h"
 #include "Helix.h"
 
 class testApp : public ofBaseApp{
@@ -19,6 +20,10 @@ class testApp : public ofBaseApp{
   void dragEvent(ofDragInfo dragInfo);
   void gotMessage(ofMessage msg);
  public:
+
+  ofxFloatSlider tube_radius;
+  ofxPanel gui;
+  
   ofEasyCam cam;
   Helix helix;
 };
